@@ -202,6 +202,7 @@ public: \
 	static void Execute_LeapHandUnpinched(UObject* O, float Strength, ULeapHand* Hand); \
 	static void Execute_LeapLeftHandMoved(UObject* O, ULeapHand* Hand); \
 	static void Execute_LeapLeftMostFingerMoved(UObject* O, ULeapFinger* Finger); \
+	static void Execute_LeapMotionOnDisconnect(UObject* O); \
 	static void Execute_LeapRightHandMoved(UObject* O, ULeapHand* Hand); \
 	static void Execute_LeapRightMostFingerMoved(UObject* O, ULeapFinger* Finger); \
 	static void Execute_RawImageReceived(UObject* O, UTexture2D* Texture, ULeapImage* Image); \
@@ -234,6 +235,7 @@ public: \
 	static void Execute_LeapHandUnpinched(UObject* O, float Strength, ULeapHand* Hand); \
 	static void Execute_LeapLeftHandMoved(UObject* O, ULeapHand* Hand); \
 	static void Execute_LeapLeftMostFingerMoved(UObject* O, ULeapFinger* Finger); \
+	static void Execute_LeapMotionOnDisconnect(UObject* O); \
 	static void Execute_LeapRightHandMoved(UObject* O, ULeapHand* Hand); \
 	static void Execute_LeapRightMostFingerMoved(UObject* O, ULeapFinger* Finger); \
 	static void Execute_RawImageReceived(UObject* O, UTexture2D* Texture, ULeapImage* Image); \

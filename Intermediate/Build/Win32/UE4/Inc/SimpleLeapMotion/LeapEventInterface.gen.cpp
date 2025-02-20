@@ -100,6 +100,10 @@ void EmptyLinkFunctionForGeneratedCodeLeapEventInterface() {}
 	{
 		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_LeapLeftMostFingerMoved instead.");
 	}
+	void ILeapEventInterface::LeapMotionOnDisconnect()
+	{
+		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_LeapMotionOnDisconnect instead.");
+	}
 	void ILeapEventInterface::LeapRightHandMoved(ULeapHand* Hand)
 	{
 		check(0 && "Do not directly call Event functions in Interfaces. Call Execute_LeapRightHandMoved instead.");
@@ -755,6 +759,31 @@ void EmptyLinkFunctionForGeneratedCodeLeapEventInterface() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_ULeapEventInterface_LeapMotionOnDisconnect_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ULeapEventInterface_LeapMotionOnDisconnect_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Leap Interface Event" },
+		{ "Comment", "/* \xe5\xbd\x93\xe6\x8e\xa7\xe5\x88\xb6\xe5\x99\xa8\xe5\xaf\xb9\xe8\xb1\xa1\xe4\xb8\x8e Leap Motion \xe8\xbd\xaf\xe4\xbb\xb6\xe6\x96\xad\xe5\xbc\x80\xe8\xbf\x9e\xe6\x8e\xa5\xe6\x97\xb6\xe8\xb0\x83\xe7\x94\xa8\xef\xbc\x8c\xe6\x88\x96\xe8\x80\x85 Leap Motion \xe7\xa1\xac\xe4\xbb\xb6\xe5\xb7\xb2\xe6\x8b\x94\xe4\xb8\x8b\xe3\x80\x82\n\x09 * \xe6\x8b\x94\xe4\xb8\x8b Leap Motion \xe8\xae\xbe\xe5\xa4\x87\xe6\x97\xb6\xef\xbc\x8c\xe6\x8e\xa7\xe5\x88\xb6\xe5\x99\xa8\xe5\x8f\xaf\xe4\xbb\xa5\xe6\x96\xad\xe5\xbc\x80\xe8\xbf\x9e\xe6\x8e\xa5\xef\xbc\x8c\xe6\xad\xa4\xe6\x97\xb6\xe7\x94\xa8\xe6\x88\xb7\xe5\x85\xb3\xe9\x97\xad Leap Motion \xe8\xbd\xaf\xe4\xbb\xb6\xef\xbc\x8c\xe6\x88\x96 Leap Motion \xe8\xbd\xaf\xe4\xbb\xb6\xe9\x81\x87\xe5\x88\xb0\xe4\xb8\x8d\xe5\x8f\xaf\xe6\x81\xa2\xe5\xa4\x8d\xe7\x9a\x84\xe9\x94\x99\xe8\xaf\xaf\xe3\x80\x82\n\x09 */" },
+		{ "ModuleRelativePath", "Public/LeapEventInterface.h" },
+		{ "ToolTip", "\xe5\xbd\x93\xe6\x8e\xa7\xe5\x88\xb6\xe5\x99\xa8\xe5\xaf\xb9\xe8\xb1\xa1\xe4\xb8\x8e Leap Motion \xe8\xbd\xaf\xe4\xbb\xb6\xe6\x96\xad\xe5\xbc\x80\xe8\xbf\x9e\xe6\x8e\xa5\xe6\x97\xb6\xe8\xb0\x83\xe7\x94\xa8\xef\xbc\x8c\xe6\x88\x96\xe8\x80\x85 Leap Motion \xe7\xa1\xac\xe4\xbb\xb6\xe5\xb7\xb2\xe6\x8b\x94\xe4\xb8\x8b\xe3\x80\x82\n       * \xe6\x8b\x94\xe4\xb8\x8b Leap Motion \xe8\xae\xbe\xe5\xa4\x87\xe6\x97\xb6\xef\xbc\x8c\xe6\x8e\xa7\xe5\x88\xb6\xe5\x99\xa8\xe5\x8f\xaf\xe4\xbb\xa5\xe6\x96\xad\xe5\xbc\x80\xe8\xbf\x9e\xe6\x8e\xa5\xef\xbc\x8c\xe6\xad\xa4\xe6\x97\xb6\xe7\x94\xa8\xe6\x88\xb7\xe5\x85\xb3\xe9\x97\xad Leap Motion \xe8\xbd\xaf\xe4\xbb\xb6\xef\xbc\x8c\xe6\x88\x96 Leap Motion \xe8\xbd\xaf\xe4\xbb\xb6\xe9\x81\x87\xe5\x88\xb0\xe4\xb8\x8d\xe5\x8f\xaf\xe6\x81\xa2\xe5\xa4\x8d\xe7\x9a\x84\xe9\x94\x99\xe8\xaf\xaf\xe3\x80\x82" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ULeapEventInterface_LeapMotionOnDisconnect_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ULeapEventInterface, nullptr, "LeapMotionOnDisconnect", nullptr, nullptr, 0, nullptr, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08020800, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ULeapEventInterface_LeapMotionOnDisconnect_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ULeapEventInterface_LeapMotionOnDisconnect_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ULeapEventInterface_LeapMotionOnDisconnect()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ULeapEventInterface_LeapMotionOnDisconnect_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_ULeapEventInterface_LeapRightHandMoved_Statics
 	{
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_Hand;
@@ -958,6 +987,7 @@ void EmptyLinkFunctionForGeneratedCodeLeapEventInterface() {}
 		{ &Z_Construct_UFunction_ULeapEventInterface_LeapHandUnpinched, "LeapHandUnpinched" }, // 2047881754
 		{ &Z_Construct_UFunction_ULeapEventInterface_LeapLeftHandMoved, "LeapLeftHandMoved" }, // 1657514693
 		{ &Z_Construct_UFunction_ULeapEventInterface_LeapLeftMostFingerMoved, "LeapLeftMostFingerMoved" }, // 1838634472
+		{ &Z_Construct_UFunction_ULeapEventInterface_LeapMotionOnDisconnect, "LeapMotionOnDisconnect" }, // 3904083414
 		{ &Z_Construct_UFunction_ULeapEventInterface_LeapRightHandMoved, "LeapRightHandMoved" }, // 1129188117
 		{ &Z_Construct_UFunction_ULeapEventInterface_LeapRightMostFingerMoved, "LeapRightMostFingerMoved" }, // 886962597
 		{ &Z_Construct_UFunction_ULeapEventInterface_RawImageReceived, "RawImageReceived" }, // 2960530891
@@ -997,7 +1027,7 @@ void EmptyLinkFunctionForGeneratedCodeLeapEventInterface() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ULeapEventInterface, 2218311033);
+	IMPLEMENT_CLASS(ULeapEventInterface, 2387242753);
 	template<> SIMPLELEAPMOTION_API UClass* StaticClass<ULeapEventInterface>()
 	{
 		return ULeapEventInterface::StaticClass();
@@ -1243,6 +1273,17 @@ void EmptyLinkFunctionForGeneratedCodeLeapEventInterface() {}
 		{
 			Parms.Finger=Finger;
 			O->ProcessEvent(Func, &Parms);
+		}
+	}
+	static FName NAME_ULeapEventInterface_LeapMotionOnDisconnect = FName(TEXT("LeapMotionOnDisconnect"));
+	void ILeapEventInterface::Execute_LeapMotionOnDisconnect(UObject* O)
+	{
+		check(O != NULL);
+		check(O->GetClass()->ImplementsInterface(ULeapEventInterface::StaticClass()));
+		UFunction* const Func = O->FindFunction(NAME_ULeapEventInterface_LeapMotionOnDisconnect);
+		if (Func)
+		{
+			O->ProcessEvent(Func, NULL);
 		}
 	}
 	static FName NAME_ULeapEventInterface_LeapRightHandMoved = FName(TEXT("LeapRightHandMoved"));

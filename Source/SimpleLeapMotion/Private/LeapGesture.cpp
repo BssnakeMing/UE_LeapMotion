@@ -1,6 +1,6 @@
 #include "LeapGesture.h"
 
-#include <Leap.h>
+#include "Leap_NoPI.h"
 
 #include "LeapFrame.h"
 #include "LeapHandList.h"

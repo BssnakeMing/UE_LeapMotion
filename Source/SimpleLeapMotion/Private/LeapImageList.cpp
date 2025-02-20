@@ -1,6 +1,6 @@
 #include "LeapImageList.h"
 
-#include <Leap.h>
+#include "Leap_NoPI.h"
 
 #include "LeapImage.h"
 

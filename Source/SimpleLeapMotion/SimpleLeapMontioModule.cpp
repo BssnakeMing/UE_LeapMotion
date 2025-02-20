@@ -3,6 +3,8 @@
 #include "SimpleLeapMotionModule.h"
 
 #include "FLeapMotionInputDevice.h"
+#include "LeapForwardDeclaration.h"
+#include "LeapInterfaceUtility.h"
 
 #define LOCTEXT_NAMESPACE "FSimpleLeapMontionModule"
 #define PLUGIN_VERSION "2.0.0"

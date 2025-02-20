@@ -252,6 +252,14 @@ public:
 	UFUNCTION(BlueprintImplementableEvent, Category = "Leap Interface Event")
 	void RawImageReceived(UTexture2D* Texture, ULeapImage* Image);
 
+	// Server
+	
+	/* 当控制器对象与 Leap Motion 软件断开连接时调用，或者 Leap Motion 硬件已拔下。
+	 * 拔下 Leap Motion 设备时，控制器可以断开连接，此时用户关闭 Leap Motion 软件，或 Leap Motion 软件遇到不可恢复的错误。
+	 */
+	UFUNCTION(BlueprintImplementableEvent, Category = "Leap Interface Event")
+	void LeapMotionOnDisconnect();
+	
 	//Help identifying
 	virtual FString ToString();
 };

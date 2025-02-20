@@ -21,7 +21,7 @@ void EmptyLinkFunctionForGeneratedCodeSimpleLeapMotion_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0x03DA8273,
+				0xAAC60D6F,
 				0x022A2FB6,
 				METADATA_PARAMS(nullptr, 0)
 			};

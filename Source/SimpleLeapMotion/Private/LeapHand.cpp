@@ -1,6 +1,10 @@
 #include "LeapHand.h"
 
 #include "FLeapMotionInputDevice.h"
+#include "LeapArm.h"
+#include "LeapFingerList.h"
+#include "LeapFrame.h"
+#include "LeapInterfaceUtility.h"
 
 class PrivateHand
 {

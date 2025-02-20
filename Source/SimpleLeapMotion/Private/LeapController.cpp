@@ -66,6 +66,9 @@ void ULeapController::OnRegister()
 
 	//Grab our data pointers
 	Private->ControllerData = ILeapMotionPlugin::Get().ControllerData();
+
+	// 设置运行暂停
+	SetPolicy(Leap::Controller::PolicyFlag::POLICY_ALLOW_PAUSE_RESUME);
 }
 
 void ULeapController::OnUnregister()
@@ -196,4 +199,19 @@ void ULeapController::SetInterfaceDelegate(UObject* NewDelegate)
 	{
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, TEXT("LeapController Warning: Delegate is NOT set, did you implement LeapEventInterface?"));
 	}
+}
+
+void ULeapController::SetPolicy(Leap::Controller::PolicyFlag policy)
+{
+	Private->ControllerData->LeapController.setPolicy(policy);
+}
+
+void ULeapController::SetTrackingPause(bool Pause)
+{
+	Private->ControllerData->LeapController.setPaused(Pause);
+}
+
+bool ULeapController::IsTrackingPaused()
+{
+	return Private->ControllerData->LeapController.isPaused();
 }

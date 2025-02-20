@@ -1,6 +1,6 @@
 #include "LeapHandList.h"
 
-#include <Leap.h>
+#include "Leap_NoPI.h"
 
 #include "LeapHand.h"
 

@@ -3,7 +3,7 @@
 #include "IInputDevice.h"
 #include "LeapHMDSnapshot.h"
 
-#include <Leap.h>
+#include "Leap_NoPI.h"
 
 struct FKey;
 
@@ -28,7 +28,9 @@ struct LeapControllerData
 	LeapHMDSnapshot TimeWarpSnapshot;	//latest timewarp snapshot
 };
 
-class FLeapMotionInputDevice : public IInputDevice
+using FLeapMotionListener = Leap::Listener ;
+
+class FLeapMotionInputDevice : public IInputDevice ,public FLeapMotionListener
 {
 public:
 	FLeapMotionInputDevice(const TSharedRef< FGenericApplicationMessageHandler >& MessageHandler);
@@ -55,6 +57,15 @@ public:
 
 	TSharedRef< FGenericApplicationMessageHandler > MessageHandler;
 
+	// FLeapMotionListener
+public:
+	/*
+	 * 当控制器对象与 Leap Motion 软件断开连接时调用，或者 Leap Motion 硬件已拔下。
+	 * 拔下 Leap Motion 设备时，控制器可以断开连接，此时用户关闭 Leap Motion 软件，或 Leap Motion 软件遇到不可恢复的错误。
+	 */
+	virtual void onDisconnect(const Leap::Controller&) override;
+
+public:
 	/** Main Controller data and settings reference*/
 	LeapControllerData ControllerData;
 	

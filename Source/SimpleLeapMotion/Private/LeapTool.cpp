@@ -1,6 +1,6 @@
 #include "LeapTool.h"
 
-#include <Leap.h>
+#include "Leap_NoPI.h"
 
 
 class PrivateTool

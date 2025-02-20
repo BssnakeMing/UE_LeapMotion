@@ -1,6 +1,6 @@
 #include "LeapToolList.h"
 
-#include <Leap.h>
+#include "Leap_NoPI.h"
 
 #include "LeapTool.h"
 

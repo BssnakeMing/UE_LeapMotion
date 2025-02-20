@@ -1,7 +1,7 @@
 #include "LeapSwipeGesture.h"
 
-#include "LeapInterfaceUtility.h"
 #include "LeapPointable.h"
+#include "LeapInterfaceUtility.h"
 
 
 class PrivateSwipeGesture

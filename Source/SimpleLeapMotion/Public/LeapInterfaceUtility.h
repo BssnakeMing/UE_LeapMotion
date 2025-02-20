@@ -1,9 +1,7 @@
  #pragma once
 
-// 这个很重要
+//#include "Leap.h"
 #include "Leap_NoPI.h"
-
-#include "Leap.h"
 #include "LeapEnums.h"
 
 

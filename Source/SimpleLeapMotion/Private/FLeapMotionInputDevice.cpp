@@ -227,6 +227,7 @@ FLeapMotionInputDevice::FLeapMotionInputDevice(const TSharedRef< FGenericApplica
 
 	//PRoot = NewObject<ULeapBaseObject>();
 	//PRoot->AddToRoot();  //work around to keep our custom event objects in memory until we're done with them
+	ControllerData.LeapController.addListener(*this);
 }
 
 
@@ -761,6 +762,14 @@ FLeapMotionInputDevice::~FLeapMotionInputDevice()
 	LeftHand = nullptr;
 	RightHand = nullptr;
 
+}
+
+void FLeapMotionInputDevice::onDisconnect(const Leap::Controller& Controller)
+{
+	CallFunctionOnDelegates([&](UObject* EventDelegate)
+	{
+		ILeapEventInterface::Execute_LeapMotionOnDisconnect(EventDelegate);
+	});
 }
 
 void FLeapMotionInputDevice::AddEventDelegate(UObject* EventDelegate)

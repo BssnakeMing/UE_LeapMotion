@@ -2,6 +2,7 @@
 
 #include "Components/ActorComponent.h"
 
+#include "Leap_NoPI.h"
 #include "LeapController.generated.h"
 
 /**
@@ -30,10 +31,11 @@ public:
 
 	/**
 	* Reports whether this Controller is connected to the Leap Motion service and the Leap Motion hardware is plugged in.
+	* 报告此控制器是否已连接到 Leap Motion 服务，以及 Leap Motion 硬件是否已插入。
 	*/
 	UFUNCTION(BlueprintPure, meta = (Keywords = "is connected"), Category = "Leap Controller")
 	bool IsConnected() const;
-
+	
 	/**
 	* Returns a frame of tracking data from the Leap Motion software.
 	* Call frame() or frame(0) to access the most recent frame; call frame(1)
@@ -111,6 +113,27 @@ public:
 	*/
 	UFUNCTION(BlueprintCallable, meta = (Keywords = "set delegate self"), Category = "Leap Interface")
 	void SetInterfaceDelegate(UObject* NewDelegate);
+
+	/**
+	 * 请求设置策略。
+	 * 
+	 * @param policy 支持的控制器策略。
+	 */
+	void SetPolicy(Leap::Controller::PolicyFlag policy);
+
+	/**
+	 *	暂停或恢复 Leap Motion 服务。
+	 *
+	 * 当服务暂停时，没有应用程序接收跟踪数据，并且服务本身使用的 CPU 时间最少。
+	 * 
+	 * @param Pause 服务状态
+	 */
+	UFUNCTION(BlueprintCallable, Category = "Leap Interface")
+	void SetTrackingPause(bool Pause);
+
+	// 返回 Leap Motion 服务当前是否暂停。
+	UFUNCTION(BlueprintCallable, Category = "Leap Interface")
+	bool IsTrackingPaused();
 
 private:	
 	class LeapControllerPrivate* Private;

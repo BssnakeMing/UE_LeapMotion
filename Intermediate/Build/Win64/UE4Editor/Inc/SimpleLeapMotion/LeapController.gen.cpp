@@ -22,6 +22,21 @@ void EmptyLinkFunctionForGeneratedCodeLeapController() {}
 	COREUOBJECT_API UClass* Z_Construct_UClass_UObject_NoRegister();
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 // End Cross Module References
+	DEFINE_FUNCTION(ULeapController::execIsTrackingPaused)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(bool*)Z_Param__Result=P_THIS->IsTrackingPaused();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ULeapController::execSetTrackingPause)
+	{
+		P_GET_UBOOL(Z_Param_Pause);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SetTrackingPause(Z_Param_Pause);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ULeapController::execSetInterfaceDelegate)
 	{
 		P_GET_OBJECT(UObject,Z_Param_NewDelegate);
@@ -115,9 +130,11 @@ void EmptyLinkFunctionForGeneratedCodeLeapController() {}
 			{ "HasFocus", &ULeapController::execHasFocus },
 			{ "IsConnected", &ULeapController::execIsConnected },
 			{ "IsServiceConnected", &ULeapController::execIsServiceConnected },
+			{ "IsTrackingPaused", &ULeapController::execIsTrackingPaused },
 			{ "OptimizeForHMD", &ULeapController::execOptimizeForHMD },
 			{ "SetInterfaceDelegate", &ULeapController::execSetInterfaceDelegate },
 			{ "SetLeapMountToHMDOffset", &ULeapController::execSetLeapMountToHMDOffset },
+			{ "SetTrackingPause", &ULeapController::execSetTrackingPause },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -381,10 +398,10 @@ void EmptyLinkFunctionForGeneratedCodeLeapController() {}
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ULeapController_IsConnected_Statics::Function_MetaDataParams[] = {
 		{ "Category", "Leap Controller" },
-		{ "Comment", "/**\n\x09* Reports whether this Controller is connected to the Leap Motion service and the Leap Motion hardware is plugged in.\n\x09*/" },
+		{ "Comment", "/**\n\x09* Reports whether this Controller is connected to the Leap Motion service and the Leap Motion hardware is plugged in.\n\x09* \xe6\x8a\xa5\xe5\x91\x8a\xe6\xad\xa4\xe6\x8e\xa7\xe5\x88\xb6\xe5\x99\xa8\xe6\x98\xaf\xe5\x90\xa6\xe5\xb7\xb2\xe8\xbf\x9e\xe6\x8e\xa5\xe5\x88\xb0 Leap Motion \xe6\x9c\x8d\xe5\x8a\xa1\xef\xbc\x8c\xe4\xbb\xa5\xe5\x8f\x8a Leap Motion \xe7\xa1\xac\xe4\xbb\xb6\xe6\x98\xaf\xe5\x90\xa6\xe5\xb7\xb2\xe6\x8f\x92\xe5\x85\xa5\xe3\x80\x82\n\x09*/" },
 		{ "Keywords", "is connected" },
 		{ "ModuleRelativePath", "Public/LeapController.h" },
-		{ "ToolTip", "Reports whether this Controller is connected to the Leap Motion service and the Leap Motion hardware is plugged in." },
+		{ "ToolTip", "Reports whether this Controller is connected to the Leap Motion service and the Leap Motion hardware is plugged in.\n\xe6\x8a\xa5\xe5\x91\x8a\xe6\xad\xa4\xe6\x8e\xa7\xe5\x88\xb6\xe5\x99\xa8\xe6\x98\xaf\xe5\x90\xa6\xe5\xb7\xb2\xe8\xbf\x9e\xe6\x8e\xa5\xe5\x88\xb0 Leap Motion \xe6\x9c\x8d\xe5\x8a\xa1\xef\xbc\x8c\xe4\xbb\xa5\xe5\x8f\x8a Leap Motion \xe7\xa1\xac\xe4\xbb\xb6\xe6\x98\xaf\xe5\x90\xa6\xe5\xb7\xb2\xe6\x8f\x92\xe5\x85\xa5\xe3\x80\x82" },
 	};
 #endif
 	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ULeapController_IsConnected_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ULeapController, nullptr, "IsConnected", nullptr, nullptr, sizeof(LeapController_eventIsConnected_Parms), Z_Construct_UFunction_ULeapController_IsConnected_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ULeapController_IsConnected_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ULeapController_IsConnected_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ULeapController_IsConnected_Statics::Function_MetaDataParams)) };
@@ -435,6 +452,46 @@ void EmptyLinkFunctionForGeneratedCodeLeapController() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ULeapController_IsServiceConnected_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ULeapController_IsTrackingPaused_Statics
+	{
+		struct LeapController_eventIsTrackingPaused_Parms
+		{
+			bool ReturnValue;
+		};
+		static void NewProp_ReturnValue_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	void Z_Construct_UFunction_ULeapController_IsTrackingPaused_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+	{
+		((LeapController_eventIsTrackingPaused_Parms*)Obj)->ReturnValue = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_ULeapController_IsTrackingPaused_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(LeapController_eventIsTrackingPaused_Parms), &Z_Construct_UFunction_ULeapController_IsTrackingPaused_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ULeapController_IsTrackingPaused_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ULeapController_IsTrackingPaused_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ULeapController_IsTrackingPaused_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Leap Interface" },
+		{ "Comment", "// \xe8\xbf\x94\xe5\x9b\x9e Leap Motion \xe6\x9c\x8d\xe5\x8a\xa1\xe5\xbd\x93\xe5\x89\x8d\xe6\x98\xaf\xe5\x90\xa6\xe6\x9a\x82\xe5\x81\x9c\xe3\x80\x82\n" },
+		{ "ModuleRelativePath", "Public/LeapController.h" },
+		{ "ToolTip", "\xe8\xbf\x94\xe5\x9b\x9e Leap Motion \xe6\x9c\x8d\xe5\x8a\xa1\xe5\xbd\x93\xe5\x89\x8d\xe6\x98\xaf\xe5\x90\xa6\xe6\x9a\x82\xe5\x81\x9c\xe3\x80\x82" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ULeapController_IsTrackingPaused_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ULeapController, nullptr, "IsTrackingPaused", nullptr, nullptr, sizeof(LeapController_eventIsTrackingPaused_Parms), Z_Construct_UFunction_ULeapController_IsTrackingPaused_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ULeapController_IsTrackingPaused_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ULeapController_IsTrackingPaused_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ULeapController_IsTrackingPaused_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ULeapController_IsTrackingPaused()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ULeapController_IsTrackingPaused_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -572,6 +629,46 @@ void EmptyLinkFunctionForGeneratedCodeLeapController() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_ULeapController_SetTrackingPause_Statics
+	{
+		struct LeapController_eventSetTrackingPause_Parms
+		{
+			bool Pause;
+		};
+		static void NewProp_Pause_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_Pause;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	void Z_Construct_UFunction_ULeapController_SetTrackingPause_Statics::NewProp_Pause_SetBit(void* Obj)
+	{
+		((LeapController_eventSetTrackingPause_Parms*)Obj)->Pause = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_ULeapController_SetTrackingPause_Statics::NewProp_Pause = { "Pause", nullptr, (EPropertyFlags)0x0010000000000080, UE4CodeGen_Private::EPropertyGenFlags::Bool | UE4CodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, 1, sizeof(bool), sizeof(LeapController_eventSetTrackingPause_Parms), &Z_Construct_UFunction_ULeapController_SetTrackingPause_Statics::NewProp_Pause_SetBit, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ULeapController_SetTrackingPause_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ULeapController_SetTrackingPause_Statics::NewProp_Pause,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ULeapController_SetTrackingPause_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Leap Interface" },
+		{ "Comment", "/**\n\x09 *\x09\xe6\x9a\x82\xe5\x81\x9c\xe6\x88\x96\xe6\x81\xa2\xe5\xa4\x8d Leap Motion \xe6\x9c\x8d\xe5\x8a\xa1\xe3\x80\x82\n\x09 *\n\x09 * \xe5\xbd\x93\xe6\x9c\x8d\xe5\x8a\xa1\xe6\x9a\x82\xe5\x81\x9c\xe6\x97\xb6\xef\xbc\x8c\xe6\xb2\xa1\xe6\x9c\x89\xe5\xba\x94\xe7\x94\xa8\xe7\xa8\x8b\xe5\xba\x8f\xe6\x8e\xa5\xe6\x94\xb6\xe8\xb7\x9f\xe8\xb8\xaa\xe6\x95\xb0\xe6\x8d\xae\xef\xbc\x8c\xe5\xb9\xb6\xe4\xb8\x94\xe6\x9c\x8d\xe5\x8a\xa1\xe6\x9c\xac\xe8\xba\xab\xe4\xbd\xbf\xe7\x94\xa8\xe7\x9a\x84 CPU \xe6\x97\xb6\xe9\x97\xb4\xe6\x9c\x80\xe5\xb0\x91\xe3\x80\x82\n\x09 * \n\x09 * @param Pause \xe6\x9c\x8d\xe5\x8a\xa1\xe7\x8a\xb6\xe6\x80\x81\n\x09 */" },
+		{ "ModuleRelativePath", "Public/LeapController.h" },
+		{ "ToolTip", "\xe6\x9a\x82\xe5\x81\x9c\xe6\x88\x96\xe6\x81\xa2\xe5\xa4\x8d Leap Motion \xe6\x9c\x8d\xe5\x8a\xa1\xe3\x80\x82\n\n\xe5\xbd\x93\xe6\x9c\x8d\xe5\x8a\xa1\xe6\x9a\x82\xe5\x81\x9c\xe6\x97\xb6\xef\xbc\x8c\xe6\xb2\xa1\xe6\x9c\x89\xe5\xba\x94\xe7\x94\xa8\xe7\xa8\x8b\xe5\xba\x8f\xe6\x8e\xa5\xe6\x94\xb6\xe8\xb7\x9f\xe8\xb8\xaa\xe6\x95\xb0\xe6\x8d\xae\xef\xbc\x8c\xe5\xb9\xb6\xe4\xb8\x94\xe6\x9c\x8d\xe5\x8a\xa1\xe6\x9c\xac\xe8\xba\xab\xe4\xbd\xbf\xe7\x94\xa8\xe7\x9a\x84 CPU \xe6\x97\xb6\xe9\x97\xb4\xe6\x9c\x80\xe5\xb0\x91\xe3\x80\x82\n\n@param Pause \xe6\x9c\x8d\xe5\x8a\xa1\xe7\x8a\xb6\xe6\x80\x81" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_ULeapController_SetTrackingPause_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ULeapController, nullptr, "SetTrackingPause", nullptr, nullptr, sizeof(LeapController_eventSetTrackingPause_Parms), Z_Construct_UFunction_ULeapController_SetTrackingPause_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ULeapController_SetTrackingPause_Statics::PropPointers), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_ULeapController_SetTrackingPause_Statics::Function_MetaDataParams, UE_ARRAY_COUNT(Z_Construct_UFunction_ULeapController_SetTrackingPause_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_ULeapController_SetTrackingPause()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_ULeapController_SetTrackingPause_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	UClass* Z_Construct_UClass_ULeapController_NoRegister()
 	{
 		return ULeapController::StaticClass();
@@ -601,11 +698,13 @@ void EmptyLinkFunctionForGeneratedCodeLeapController() {}
 		{ &Z_Construct_UFunction_ULeapController_EnableImageSupport, "EnableImageSupport" }, // 2322045036
 		{ &Z_Construct_UFunction_ULeapController_Frame, "Frame" }, // 3197394583
 		{ &Z_Construct_UFunction_ULeapController_HasFocus, "HasFocus" }, // 961361649
-		{ &Z_Construct_UFunction_ULeapController_IsConnected, "IsConnected" }, // 1057220766
+		{ &Z_Construct_UFunction_ULeapController_IsConnected, "IsConnected" }, // 405126023
 		{ &Z_Construct_UFunction_ULeapController_IsServiceConnected, "IsServiceConnected" }, // 3665842321
+		{ &Z_Construct_UFunction_ULeapController_IsTrackingPaused, "IsTrackingPaused" }, // 1450694155
 		{ &Z_Construct_UFunction_ULeapController_OptimizeForHMD, "OptimizeForHMD" }, // 433427081
 		{ &Z_Construct_UFunction_ULeapController_SetInterfaceDelegate, "SetInterfaceDelegate" }, // 3161011376
 		{ &Z_Construct_UFunction_ULeapController_SetLeapMountToHMDOffset, "SetLeapMountToHMDOffset" }, // 711793096
+		{ &Z_Construct_UFunction_ULeapController_SetTrackingPause, "SetTrackingPause" }, // 3296231629
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ULeapController_Statics::Class_MetaDataParams[] = {
@@ -654,7 +753,7 @@ void EmptyLinkFunctionForGeneratedCodeLeapController() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ULeapController, 2977933684);
+	IMPLEMENT_CLASS(ULeapController, 1354048861);
 	template<> SIMPLELEAPMOTION_API UClass* StaticClass<ULeapController>()
 	{
 		return ULeapController::StaticClass();
