@@ -37,7 +37,7 @@ public class SimpleLeapMotion : ModuleRules
 			new string[] {
 				// ... add other private include paths required here ...
 				Path.Combine(ModuleDirectory, "Private" ),
-				Path.Combine(ThirdPartyPath, "LeapSDK", "Include"),
+				//Path.Combine(ThirdPartyPath, "LeapSDK", "Include"),
 			}
 			);
 			
@@ -56,6 +56,7 @@ public class SimpleLeapMotion : ModuleRules
 				"HeadMountedDisplay",
 				"RHI",
 				"RenderCore",
+				"LeapSDK"
 			}
 			);
 			
@@ -75,10 +76,10 @@ public class SimpleLeapMotion : ModuleRules
 			}
 			);
 		
-		LoadLeapLib(Target);
+		//LoadLeapLib(Target);
 	}
 	
-	public bool LoadLeapLib(ReadOnlyTargetRules Target)
+	/*public bool LoadLeapLib(ReadOnlyTargetRules Target)
 	{
 		bool isLibrarySupported = false;
 
@@ -101,5 +102,5 @@ public class SimpleLeapMotion : ModuleRules
 		}
 
 		return isLibrarySupported;
-	}
+	}*/
 }
